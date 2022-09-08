@@ -2,7 +2,12 @@ version: '3.5'
 services:
   nginx:
     networks:
-      - webapp_api-net
+      webapp_api-net:
+      default:
+        aliases:
+          - api.domain.com
 networks:
   webapp_api-net:
     external: true
+  default:
+    name: nginx_default
